@@ -10,7 +10,7 @@ public class StudentDatabaseApp {
         Scanner scanner = new Scanner(System.in);
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-            System.out.println("✅ Connected to the database!");
+            System.out.println("Connected to the database!");
 
             boolean running = true;
 
@@ -34,11 +34,11 @@ public class StudentDatabaseApp {
                         deleteStudent(conn, scanner);
                         break;
                     case 5:
-                        System.out.println("👋 Exiting...");
+                        System.out.println("Exiting...");
                         running = false;
                         break;
                     default:
-                        System.out.println("❌ Invalid choice. Please try again.");
+                        System.out.println("Invalid choice. Please try again.");
                 }
             }
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class StudentDatabaseApp {
             stmt.setInt(2, age);
             stmt.setString(3, course);
             stmt.executeUpdate();
-            System.out.println("✅ Student added successfully!");
+            System.out.println("Student added successfully!");
         }
     }
 
@@ -110,9 +110,9 @@ public class StudentDatabaseApp {
             stmt.setInt(4, id);
             int rows = stmt.executeUpdate();
             if (rows > 0) {
-                System.out.println("✅ Student updated successfully!");
+                System.out.println("Student updated successfully!");
             } else {
-                System.out.println("⚠️ No student found with that ID.");
+                System.out.println("No student found with that ID.");
             }
         }
     }
@@ -126,9 +126,9 @@ public class StudentDatabaseApp {
             stmt.setInt(1, id);
             int rows = stmt.executeUpdate();
             if (rows > 0) {
-                System.out.println("✅ Student deleted successfully!");
+                System.out.println("Student deleted successfully!");
             } else {
-                System.out.println("⚠️ No student found with that ID.");
+                System.out.println("No student found with that ID.");
             }
         }
     }
